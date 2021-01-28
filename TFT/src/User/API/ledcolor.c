@@ -55,6 +55,21 @@ void knob_LED_DeInit(void)
 
 void WS2812_Send_DAT(uint32_t ws2812_dat)
 {
+  union X {
+      uint32_t data;
+      struct {
+          uint8_t b;
+          uint8_t r;
+          uint8_t g;
+      };
+  } c;// {.data=ws2812_dat};
+
+  // TODO rubienr
+  c.data = ws2812_dat;
+  c.r /= 8;
+  c.g /= 8;
+  c.b /= 8;
+
   uint16_t led_num;
   int8_t bit;
   uint16_t cycle = mcuClocks.PCLK1_Timer_Frequency * (0.000001 * (NEOPIXEL_T0H_US + NEOPIXEL_T1H_US)) / 2 - 1;   // Neopixel frequency
@@ -70,10 +85,10 @@ void WS2812_Send_DAT(uint32_t ws2812_dat)
     {
       TIM6->CNT = 0;
       WS2812_FAST_WRITE_HIGH(); // WS2812 required very high speed, so "GPIO_SetLevel(LED_COLOR_PIN, 1)" not applicable
-      if (ws2812_dat & (1 << bit))
-      {
+      //if (ws2812_dat & (1 << bit)) {
+      if (c.data & (1 << bit)) {
         while (TIM6->CNT < code_1_tim_h_cnt);
-      } 
+      }
       else
       {
         while (TIM6->CNT < code_0_tim_h_cnt);

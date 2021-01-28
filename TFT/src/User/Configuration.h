@@ -26,7 +26,7 @@
  *
  * Options: [2400: 0, 9600: 1, 19200: 2, 38400: 3, 57600: 4, 115200: 5, 250000: 6, 500000: 7, 1000000: 8]
  */
-#define BAUDRATE 5 // Default: 5
+#define BAUDRATE 6 // Default: 5
 
 /**
  * Default Primary Language (for Touch-Mode only)
@@ -99,7 +99,7 @@
  * Options:  0: Disabled (RECOMMENDED FOR TFT24)
  *           1: Enabled
  */
-#define DEFAULT_ST7920_FULLSCREEN_MODE 0 // Default: 0
+#define DEFAULT_ST7920_FULLSCREEN_MODE 1 // Default: 0
 
 /**
  * Keep Serial always On (ONLY SUPPORTED ON TFT24 V1.1, TFT35 V3.0, AND TFT28 V3.0)
@@ -122,28 +122,28 @@
 //=========================== Machine Settings ==============================
 //===========================================================================
 
-#define HOTEND_NUM      1  // set in 1~6
-#define EXTRUDER_NUM    1  // set in 1~6
-#define FAN_NUM         1  // set in 1~6
-#define FAN_CTRL_NUM    0  // set in 1~2
+#define HOTEND_NUM      2  // set in 1~6
+#define EXTRUDER_NUM    2  // set in 1~6
+#define FAN_NUM         2  // set in 1~6
+#define FAN_CTRL_NUM    2  // set in 1~2
 #define MIXING_EXTRUDER 0  // Default: 0. For mixing_extruder set to 1 (This option turns off autodetection
                            // of the number of extruders)
 
-#define PREHEAT_LABELS   {"PLA", "PETG", "ABS", "WOOD", "TPU", "NYLON"}
-#define PREHEAT_HOTEND   {200,   240,    230,   170,    220,   250}
-#define PREHEAT_BED      {60,    70,     90,    50,     50,    90}
+#define PREHEAT_LABELS   {"PLA stdby", "PLA", "PETG stdby", "PETG", "TPU", "NYLON"}
+#define PREHEAT_HOTEND   {        175,   210,          200,    240,   220,     250}
+#define PREHEAT_BED      {         60,    60,           70,     70,    50,      90}
 
-#define HEAT_MAX_TEMP    {275,       275,       275,       275,       275,       275,       150,    60}
+#define HEAT_MAX_TEMP    {275,       275,       275,       275,       275,       275,       90,     60}
 #define HEAT_SIGN_ID     {"T0:",     "T1:",     "T2:",     "T3:",     "T4:",     "T5:",     "B:",   "C:"}
 #define HEAT_DISPLAY_ID  {"T0",      "T1",      "T2",      "T3",      "T4",      "T5",      "Bed",  "Chamber"}
 #define HEAT_CMD         {"M104 T0", "M104 T1", "M104 T2", "M104 T3", "M104 T4", "M104 T5", "M140", "M141"};
 #define HEAT_WAIT_CMD    {"M109 T0", "M109 T1", "M109 T2", "M109 T3", "M109 T4", "M109 T5", "M190", "M191"};
 
-#define TOOL_CHANGE      {"T0",   "T1",      "T2",      "T3",      "T4",      "T5"}
-#define EXTRUDER_ID      {"E0",   "E1",      "E2",      "E3",      "E4",      "E5"}
+#define TOOL_CHANGE      {"T0",      "T1",      "T2",      "T3",      "T4",      "T5"}
+#define EXTRUDER_ID      {"E0",      "E1",      "E2",      "E3",      "E4",      "E5"}
 
 // Prevent extrusion if the temperature is below set temperature
-#define PREVENT_COLD_EXTRUSION_MINTEMP 180
+#define PREVENT_COLD_EXTRUSION_MINTEMP 175
 
 /**
  * Fan control & Fan type Options:
@@ -152,10 +152,10 @@
  *  2: FAN_TYPE_CTRL_I  - Controller fan idle speed  (Check Marlin gcode - M710)
  *  8: FAN_TYPE_UNKNOWN - Unknown / Not defined
  */
-#define FAN_MAX_PWM      {       255,       255,       255,       255,       255,       255,       255,       255 };
-#define FAN_DISPLAY_ID   {      "F0",      "F1",      "F2",      "F3",      "F4",      "F5",     "CtL",     "CtI" };
-#define FAN_CMD          { "M106 P0", "M106 P1", "M106 P2", "M106 P3", "M106 P4", "M106 P5",    "M710",    "M710" };
-#define FAN_TYPE         {         0,         0,         0,         0,         0,         0,         1,         2 };
+#define FAN_MAX_PWM      { 255,       255,        255,       255,        255,       255,       255,       255 };
+#define FAN_DISPLAY_ID   { "F0",      "F1",       "F2",      "F3",      "F4",       "F5",      "CtL",     "CtI" };
+#define FAN_CMD          { "M106 P0", "M106 P01", "M106 P2", "M106 P3",  "M106 P4", "M106 P5", "M710 S",  "M710 I" };
+#define FAN_TYPE         { 0,         0,          1,         2,          0,         0,         1,          2 };
 
 // Speed/flow rate names displayed in status screen
 #define SPEED_ID {"Sp.", "Fr."} // (speed, flow rate)
@@ -179,12 +179,12 @@
 #define EXTRUDE_FAST_SPEED   1200
 
 // Size of machine
-#define X_MIN_POS   0
-#define Y_MIN_POS   0
+#define X_MIN_POS   2
+#define Y_MIN_POS   -8
 #define Z_MIN_POS   0
-#define X_MAX_POS 235
-#define Y_MAX_POS 235
-#define Z_MAX_POS 250
+#define X_MAX_POS 410
+#define Y_MAX_POS  390
+#define Z_MAX_POS  432
 
 // Pause Settings
 #define NOZZLE_PAUSE_RETRACT_LENGTH               15  // (mm)
@@ -217,9 +217,9 @@
 #define Z_FADE_DEFAULT_VALUE 10.0f
 
 // Probe Offset limits
-#define PROBE_Z_OFFSET_MIN_VALUE     -20.0f
-#define PROBE_Z_OFFSET_MAX_VALUE      20.0f
-#define PROBE_Z_OFFSET_DEFAULT_VALUE   0.0f
+#define PROBE_Z_OFFSET_MIN_VALUE      -4.0f
+#define PROBE_Z_OFFSET_MAX_VALUE      -1.0f
+#define PROBE_Z_OFFSET_DEFAULT_VALUE  -2.5f
 
 // Home Offset limits
 #define HOME_Z_OFFSET_MIN_VALUE     -20.0f
@@ -227,8 +227,8 @@
 #define HOME_Z_OFFSET_DEFAULT_VALUE   0.0f
 
 // Babystep limits
-#define BABYSTEP_MIN_VALUE     -5.0f
-#define BABYSTEP_MAX_VALUE      5.0f
+#define BABYSTEP_MIN_VALUE     -1.0f
+#define BABYSTEP_MAX_VALUE      1.0f
 #define BABYSTEP_DEFAULT_VALUE  0.0f
 #define BABYSTEP_MAX_STEP       1.0f
 
@@ -252,7 +252,7 @@
  *
  * Options: [0: Disabled, 1: Auto-detect, 2: ABL, 3: BBL, 4: UBL, 5: MBL]
  */
-#define ENABLE_BL_VALUE 1 // Default: 1
+#define ENABLE_BL_VALUE 4 // Default: 1
 
 /** TouchMI settings (on ABL menu)
  *
@@ -265,8 +265,8 @@
 
 // Mesh Leveling Max Grid points
 // Set the maximum number of grid points per dimension
-#define MESH_GRID_MAX_POINTS_X 10 // (Minimum 1, Maximum 15)
-#define MESH_GRID_MAX_POINTS_Y 10 // (Minimum 1, Maximum 15)
+#define MESH_GRID_MAX_POINTS_X 8 // (Minimum 1, Maximum 15)
+#define MESH_GRID_MAX_POINTS_Y 8 // (Minimum 1, Maximum 15)
 
 /**
  * Auto save/load Bed Leveling data
@@ -395,7 +395,7 @@
  *  TOAST: A Toast notification is displayed for few seconds. No user interaction is needed
  *
  */
-#define ACK_NOTIFICATION_STYLE 1 // Default: 1
+#define ACK_NOTIFICATION_STYLE 2 // Default: 1
 
 // Fan speed as a percentage instead of PWM value.
 #define SHOW_FAN_PERCENTAGE true // To enabled: true | To disabled: false (Default: true)
@@ -436,7 +436,7 @@
  * Azerty: The typically keyboard Layout for french (Only for TFT70 V3.0)
  *
  */
-#define TERMINAL_KEYBOARD_LAYOUT 1  // Default: 0
+#define TERMINAL_KEYBOARD_LAYOUT 4  // Default: 0
 
 //===========================================================================
 //=========================== Other Settings ================================
@@ -497,24 +497,45 @@
  * CUSTOM_X_LABEL is the name of the custom button, CUSTOM_X_GCODE is the G-code to be sent by the custom button,
  * this should always end with a New-Line character '\n'
  */
-#define CUSTOM_0_LABEL "Disable Steppers"
-#define CUSTOM_0_GCODE "M84\n"
-#define CUSTOM_1_LABEL "Init SD Card"
-#define CUSTOM_1_GCODE "M21\n"
-#define CUSTOM_2_LABEL "Release SD Card"
-#define CUSTOM_2_GCODE "M22\n"
-#define CUSTOM_3_LABEL "Enable Leveling State"
-#define CUSTOM_3_GCODE "M420 S1\n"
-#define CUSTOM_4_LABEL "Save to EEPROM"
-#define CUSTOM_4_GCODE "M500\n"
-#define CUSTOM_5_LABEL "Restore from EEPROM"
-#define CUSTOM_5_GCODE "M501\n"
-#define CUSTOM_6_LABEL "EEPROM Defaults"
-#define CUSTOM_6_GCODE "M502\n"
-//#define CUSTOM_7_LABEL "Custom7"
-//#define CUSTOM_7_GCODE "M105\n"
-//#define CUSTOM_8_LABEL "Custom8"
+
+#define CUSTOM_0_LABEL "Clean Nozzle"
+#define CUSTOM_0_GCODE "G12\n"
+#define CUSTOM_1_LABEL "T0"
+#define CUSTOM_1_GCODE "T0\n"
+#define CUSTOM_2_LABEL "T1"
+#define CUSTOM_2_GCODE "T1\n"
+#define CUSTOM_3_LABEL "Prime E0"
+#define CUSTOM_3_GCODE "M810\n"
+#define CUSTOM_4_LABEL "Prime E1"
+#define CUSTOM_4_GCODE "M811\n"
+#define CUSTOM_5_LABEL "Case Light White"
+#define CUSTOM_5_GCODE "M150 I26 R255 U255 B255 W255 P255\n"
+#define CUSTOM_6_LABEL "Case Light Red"
+#define CUSTOM_6_GCODE "M150 I26 R255 P255\n"
+#define CUSTOM_7_LABEL "Case Light Green"
+#define CUSTOM_7_GCODE "M150 I26 U255 P255\n"
+#define CUSTOM_8_LABEL "Case Light Blue"
+#define CUSTOM_8_GCODE "M150 I26 B255 P255\n"
+#define CUSTOM_9_LABEL "Disable Case Light"
+#define CUSTOM_9_GCODE "M150 R0 U0 B0 I26\n"
+#define CUSTOM_10_LABEL "PSU On"
+#define CUSTOM_10_GCODE "M80\n"
+#define CUSTOM_11_LABEL "PSU Off"
+#define CUSTOM_11_GCODE "M81\n"
+//#define CUSTOM_3_LABEL "Release SD Card"
+//#define CUSTOM_3_GCODE "M22\n"
+//#define CUSTOM_4_LABEL "Enable Leveling State"
+//#define CUSTOM_4_GCODE "M420 S1\n"
+//#define CUSTOM_5_LABEL "Save to EEPROM"
+//#define CUSTOM_6_GCODE "M500\n"
+//#define CUSTOM_6_LABEL "Restore from EEPROM"
+//#define CUSTOM_6_GCODE "M501\n"
+//#define CUSTOM_7_LABEL "EEPROM Defaults"
+//#define CUSTOM_7_GCODE "M502\n"
+//#define CUSTOM_8_LABEL "Custom7"
 //#define CUSTOM_8_GCODE "M105\n"
+//#define CUSTOM_9_LABEL "Custom8"
+//#define CUSTOM_9_GCODE "M105\n"
 //#define CUSTOM_9_LABEL "Custom9"
 //#define CUSTOM_9_GCODE "M105\n"
 //#define CUSTOM_10_LABEL "Custom10"
@@ -543,5 +564,7 @@
 
 // Cancel G-code - run this G-code after canceling print
 #define PRINT_CANCEL_GCODE "M104 S0\nM140 S0\nG28 XY R10\nM107\nM18\n" // Home XY and raise Z 10mm
+
+#define NEOPIXEL_PIXELS  24
 
 #endif
