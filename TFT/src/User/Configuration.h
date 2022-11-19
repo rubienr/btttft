@@ -36,7 +36,7 @@
  *                P4: [min: 0, max: 9]
  *   Options: [OFF (port disabled): 0, 2400: 1, 9600: 2, 19200: 3, 38400: 4, 57600: 5, 115200: 6, 250000: 7, 500000: 8, 1000000: 9]
  */
-#define SP_1 6  // Default: 6
+#define SP_1 7  // Default: 6
 #define SP_2 0  // Default: 0
 #define SP_3 0  // Default: 0
 #define SP_4 0  // Default: 0
@@ -50,7 +50,7 @@
  *
  *   Options: [disable: 0, enable: 1]
  */
-#define EMULATED_M600 1  // Default: 1
+#define EMULATED_M600 0  // Default: 1
 
 /**
  * Emulated M109 And M190
@@ -172,7 +172,7 @@
  *     POPUP: Display a popup window for user confirmation.
  *     TOAST: A non-blocking Toast notification is displayed for few seconds. No user interaction is needed.
  */
-#define ACK_NOTIFICATION 1  // Default: 1
+#define ACK_NOTIFICATION 2  // Default: 1
 
 /**
  * Files Sorting
@@ -211,7 +211,7 @@
  * Show persistent temperature info in all menus.
  *   Options: [disable: 0, enable: 1]
  */
-#define PERSISTENT_INFO 0  // Default: 0
+#define PERSISTENT_INFO 1  // Default: 0
 
 /**
  * Temperature And Wait ACK In Terminal
@@ -232,7 +232,7 @@
  *
  *   Options: [disable: 0, enable: 1]
  */
-#define NOTIFICATION_M117 0  // Default: 0
+#define NOTIFICATION_M117 1  // Default: 0
 
 /**
  * Progress Source
@@ -293,7 +293,7 @@
  *
  *   Options: [Layer height: 0, Layer number: 1, Both - height & number: 2]
  */
-#define LAYER_DISP_TYPE 0  // Default: 0
+#define LAYER_DISP_TYPE 2  // Default: 0
 
 //================================================================================
 //============================= Marlin Mode Settings =============================
@@ -341,7 +341,7 @@
  *
  *   Options: [disable: 0, enable: 1]
  */
-#define MARLIN_FULLSCREEN 0  // Default: 0
+#define MARLIN_FULLSCREEN 1  // Default: 0
 
 /**
  * Show Marlin Mode Title
@@ -372,7 +372,7 @@
  * Hotend Count
  *   Value range: [min: 0, max: 6]
  */
-#define HOTEND_COUNT 1  // Default: 1
+#define HOTEND_COUNT 2  // Default: 1
 
 /**
  * Heated Bed Support
@@ -402,7 +402,7 @@
  *
  *   Value range: [min: 0, max: 6]
  */
-#define EXTRUDER_COUNT  1  // Default: 1
+#define EXTRUDER_COUNT  2  // Default: 1
 
 // For mixing extruder set to 1 (this option turns off auto detection of the number of extruders)
 #define MIXING_EXTRUDER 0  // Default: 0
@@ -411,7 +411,7 @@
  * Fan Count
  *   Value range: [min: 1, max: 6]
  */
-#define FAN_COUNT 1  // Default: 1
+#define FAN_COUNT 2  // Default: 1
 
 /**
  * Controller Fan Support
@@ -419,7 +419,7 @@
  * firmware supports controller fan (M710).
  *   Options: [disable: 0, enable: 1]
  */
-#define CONTROLLER_FAN 0  // Default: 0
+#define CONTROLLER_FAN 1  // Default: 0
 
 /**
  * Bed / Extruder / Chamber Maximum Temperatures
@@ -429,7 +429,7 @@
  *                bed:     [min: 20, max: 400]
  *                chamber: [min: 20, max: 200]
  */
-#define MAX_TEMP {275, 275, 275, 275, 275, 275, 150, 60}  // Default: {275, 275, 275, 275, 275, 275, 150, 60}
+#define MAX_TEMP {275, 275, 275, 275, 275, 275, 90, 60}  // Default: {275, 275, 275, 275, 275, 275, 150, 60}
 
 /**
  * Cold Extrusion Minimum Temperature
@@ -438,7 +438,7 @@
  *   Unit: [temperature in °C]
  *   Value range: [min: 20, max: 1000]
  */
-#define MIN_TEMP 180  // Default: 180
+#define MIN_TEMP 170  // Default: 180
 
 /**
  * Fan Maximum PWM Speed
@@ -474,9 +474,9 @@
  *   Unit: [feedrate in mm/min]
  *   Value range: [min: 10, max: 12000]
  */
-#define SPEED_XY_SLOW   1000  // Default: 1000
-#define SPEED_XY_NORMAL 3000  // Default: 3000
-#define SPEED_XY_FAST   5000  // Default: 5000
+#define SPEED_XY_SLOW    3000  // Default: 1000
+#define SPEED_XY_NORMAL  6000  // Default: 3000
+#define SPEED_XY_FAST   12000  // Default: 5000
 
 /**
  * Z Speeds/Feedrates
@@ -485,9 +485,9 @@
  *   Unit: [feedrate in mm/min]
  *   Value range: [min: 10, max: 12000]
  */
-#define SPEED_Z_SLOW   500   // Default: 500
-#define SPEED_Z_NORMAL 1000  // Default: 1000
-#define SPEED_Z_FAST   2000  // Default: 2000
+#define SPEED_Z_SLOW   240  // Default: 500
+#define SPEED_Z_NORMAL 360  // Default: 1000
+#define SPEED_Z_FAST   480  // Default: 2000
 
 /**
  * Extruder Speeds/Feedrates
@@ -511,7 +511,7 @@
  *
  *   Options: [disable: 0, enable: 1]
  */
-#define AUTO_LOAD_LEVELING 0  // Default: 0
+#define AUTO_LOAD_LEVELING 1  // Default: 0
 
 /**
  * Onboard / Printer Media
@@ -529,7 +529,7 @@
  *
  *   Options: [disable: 0, enable: 1, auto-detect: 2]
  */
-#define ONBOARD_SD 2  // Default: 2
+#define ONBOARD_SD 0  // Default: 2
 
 /**
  * M27 Printing Status Refresh Time
@@ -592,9 +592,9 @@
 #define NOZZLE_PAUSE_X_POSITION     (X_MIN_POS + 10.0f)  // (mm) (Default: 10.0f)
 #define NOZZLE_PAUSE_Y_POSITION     (Y_MIN_POS + 10.0f)  // (mm) (Default: 10.0f)
 #define NOZZLE_PAUSE_Z_RAISE                      10.0f  // (mm) (Default: 10.0f)
-#define NOZZLE_PAUSE_XY_FEEDRATE                   6000  // (mm/min) X and Y axes feedrate (Default: 6000)
-#define NOZZLE_PAUSE_Z_FEEDRATE                    6000  // (mm/min) Z axis feedrate (Default: 6000)
-#define NOZZLE_PAUSE_E_FEEDRATE                     600  // (mm/min) retract & purge feedrate (Default: 600)
+#define NOZZLE_PAUSE_XY_FEEDRATE                    500  // (mm/min) X and Y axes feedrate (Default: 6000)
+#define NOZZLE_PAUSE_Z_FEEDRATE                       8  // (mm/min) Z axis feedrate (Default: 6000)
+#define NOZZLE_PAUSE_E_FEEDRATE                     150  // (mm/min) retract & purge feedrate (Default: 600)
 
 /**
  * Leveling Settings
@@ -629,8 +629,8 @@
 #define LEVELING_EDGE_DISTANCE    20  // (mm) Inset distance from bed's edge for calculating leveling point location (Default: 20)
 #define LEVELING_Z_POS          0.2f  // (mm) Z-axis position when nozzle stays for leveling (Default: 0.2f)
 #define LEVELING_Z_RAISE       10.0f  // (mm) Z-axis position when nozzle move to next point (Default: 10.0f)
-#define LEVELING_XY_FEEDRATE    6000  // (mm/min) X and Y axes move feedrate (Default: 6000)
-#define LEVELING_Z_FEEDRATE     6000  // (mm/min) Z axis move feedrate (Default: 6000)
+#define LEVELING_XY_FEEDRATE     500  // (mm/min) X and Y axes move feedrate (Default: 6000)
+#define LEVELING_Z_FEEDRATE        8  // (mm/min) Z axis move feedrate (Default: 6000)
 
 /**
  * Inverted Axes (Manual Leveling, Leveling Corner, Move, Probe Offset)
@@ -823,7 +823,7 @@
  *
  *   Options: [disable: 0, enable: 1]
  */
-#define PL_RECOVERY 1  // Default: 1
+#define PL_RECOVERY 0  // Default: 1
 
 /**
  * Power Loss Recovery Homing
@@ -878,7 +878,7 @@
  *   Options: [OFF: 0, 5%: 1, 10%: 2, 20%: 3, 30%: 4, 40%: 5, 50%: 6, 60%: 7, 70%: 8, 80%: 9, 90%: 10, 100%: 11]
  */
 #define LCD_BRIGHTNESS      11  // LCD brightness level (Default: 11)
-#define LCD_IDLE_BRIGHTNESS  5  // LCD brightness level when device is idle (Default: 5)
+#define LCD_IDLE_BRIGHTNESS  3  // LCD brightness level when device is idle (Default: 5)
 
 /**
  * LCD Idle Time (only for TFT28/TFT35/TFT43/TFT50/TFT70 V3.0)
@@ -902,7 +902,7 @@
  *
  *   Options: [disable: 0, enable: 1]
  */
-#define LCD_LOCK_ON_IDLE 0  // Default: 0
+#define LCD_LOCK_ON_IDLE 1  // Default: 0
 
 /**
  * LED Color
@@ -929,14 +929,14 @@
  * The printer's LED color is configured in "LED_COLOR".
  *   Options: [disable: 0, enable: 1]
  */
-#define LED_ALWAYS_ON 1  // Default: 1
+#define LED_ALWAYS_ON 0  // Default: 1
 
 /**
  * Knob LED Color (only for TFT28/TFT35_E3/TFT43/TFT50/TFT70 V3.0)
  * Knob LED color at startup.
  *   Options: [OFF: 0, WHITE: 1, RED: 2, ORANGE: 3, YELLOW: 4, GREEN: 5, BLUE: 6, INDIGO: 7, VIOLET: 8]
  */
-#define KNOB_LED_COLOR 1  // Default: 1
+#define KNOB_LED_COLOR 7  // Default: 1
 
 // Keep the LED state in Marlin Mode
 #define KEEP_KNOB_LED_COLOR_MARLIN_MODE  // Default: uncommented (enabled)
@@ -955,7 +955,7 @@
  * Greater than 0 means the number of LEDs in the strip.
  *   Value range: [min: 0, max: 200]
  */
-//#define NEOPIXEL_PIXELS 0  // Default: commented (use default value for TFT variant).
+#define NEOPIXEL_PIXELS 24   // Default: commented (use default value for TFT variant).
                              // Uncomment it to override default value for TFT variant
 
 //================================================================================
@@ -975,36 +975,36 @@
  *   Value range: label: [min: 3, max: 75 characters]
  *                G-code: [min: 3, max: 75 characters]
  */
-#define CUSTOM_LABEL_0 "Disable Steppers"
-#define CUSTOM_GCODE_0 "M84\n"
-#define CUSTOM_LABEL_1 "Init SD Card"
-#define CUSTOM_GCODE_1 "M21\n"
-#define CUSTOM_LABEL_2 "Release SD Card"
-#define CUSTOM_GCODE_2 "M22\n"
-#define CUSTOM_LABEL_3 "Enable Leveling State"
-#define CUSTOM_GCODE_3 "M420 S1\n"
-#define CUSTOM_LABEL_4 "Save to EEPROM"
-#define CUSTOM_GCODE_4 "M500\n"
-#define CUSTOM_LABEL_5 "Restore from EEPROM"
-#define CUSTOM_GCODE_5 "M501\n"
-#define CUSTOM_LABEL_6 "EEPROM Defaults"
-#define CUSTOM_GCODE_6 "M502\n"
-//#define CUSTOM_LABEL_7 "Custom7"
-//#define CUSTOM_GCODE_7 "M105\n"
-//#define CUSTOM_LABEL_8 "Custom8"
-//#define CUSTOM_GCODE_8 "M105\n"
-//#define CUSTOM_LABEL_9 "Custom9"
-//#define CUSTOM_GCODE_9 "M105\n"
-//#define CUSTOM_LABEL_10 "Custom10"
-//#define CUSTOM_GCODE_10 "M105\n"
-//#define CUSTOM_LABEL_11 "Custom11"
-//#define CUSTOM_GCODE_11 "M105\n"
-//#define CUSTOM_LABEL_12 "Custom12"
-//#define CUSTOM_GCODE_12 "M105\n"
-//#define CUSTOM_LABEL_13 "Custom13"
-//#define CUSTOM_GCODE_13 "M105\n"
-//#define CUSTOM_LABEL_14 "Custom14"
-//#define CUSTOM_GCODE_14 "M105\n"
+#define CUSTOM_LABEL_0 "Clean T0"
+#define CUSTOM_GCODE_0 "T0\nG12\n"
+#define CUSTOM_LABEL_1 "Clean T1"
+#define CUSTOM_GCODE_1 "T1\nG12\n"
+#define CUSTOM_LABEL_2 "Clean T1 + T0"
+#define CUSTOM_GCODE_2 "T0\nG12\nT1\nG12\n"
+#define CUSTOM_LABEL_3 "Prime T0"
+#define CUSTOM_GCODE_3 "M813\n"
+#define CUSTOM_LABEL_4 "Prime T1"
+#define CUSTOM_GCODE_4 "M814\n"
+#define CUSTOM_LABEL_5 "Prime T1 + T0"
+#define CUSTOM_GCODE_5 "M814\n"
+#define CUSTOM_LABEL_6 "Select T0"
+#define CUSTOM_GCODE_6 "T0\n"
+#define CUSTOM_LABEL_7 "Select T1"
+#define CUSTOM_GCODE_7 "T1\n"
+#define CUSTOM_LABEL_8 "Part Light  White"
+#define CUSTOM_GCODE_8 "M150 I24 R255 U255 B255 W255 P255\n"
+#define CUSTOM_LABEL_9 "Part Light  Red"
+#define CUSTOM_GCODE_9 "M150 I24 R255 P255\n"
+#define CUSTOM_LABEL_10 "Part Light Green"
+#define CUSTOM_GCODE_10 "M150 I24 U255 P255\n"
+#define CUSTOM_LABEL_11 "Part Light Blue"
+#define CUSTOM_GCODE_11 "M150 I24 B255 P255\n"
+#define CUSTOM_LABEL_12 "Part Light OFF"
+#define CUSTOM_GCODE_12 "M150 I24 R0 U0 B0\n"
+#define CUSTOM_LABEL_13 "PSU On"
+#define CUSTOM_GCODE_13 "M80\n"
+#define CUSTOM_LABEL_14 "PSU Off"
+#define CUSTOM_GCODE_14 "M81\n"
 
 //================================================================================
 //===================== Start, End & Cancel G-code Commands ======================
@@ -1103,7 +1103,7 @@
 //================================================================================
 
 // PID autotune
-#define PID_CMD_MARLIN      {"M303 E0 C8 U1", "M303 E1 C8 U1", "M303 E2 C8 U1", "M303 E3 C8 U1", "M303 E4 C8 U1", "M303 E5 C8 U1", "M303 E-1 C8 U1", ""}
+#define PID_CMD_MARLIN      {"M303 E0 C8 S210 U1", "M303 E1 C8 S210 U1", "M303 E2 C8 S210 U1", "M303 E3 C8 S210 U1", "M303 E4 C8 S210 U1", "M303 E5 C8 S210 U1", "M303 E-1 C8 S60 U1", ""}
 #define PID_CMD_RRF         {"M303 T0",       "M303 T1",       "M303 T2",       "M303 T3",       "M303 T4",       "M303 T5",       "M303 H0",        ""}
 #define PID_PROCESS_TIMEOUT (15 * 60000)  // Timeout in MilliSeconds (1 minute = 60000 MilliSeconds). Default: 15 * 60000
 
@@ -1167,8 +1167,8 @@
  * Set the maximum number of grid points per dimension.
  *   Value range: [min: 1, max: 15]
  */
-#define MESH_GRID_MAX_POINTS_X 15  // Default: 15
-#define MESH_GRID_MAX_POINTS_Y 15  // Default: 15
+#define MESH_GRID_MAX_POINTS_X 9  // Default: 15
+#define MESH_GRID_MAX_POINTS_Y 9  // Default: 15
 
 /**
  * Bed Leveling Type
@@ -1181,7 +1181,7 @@
  *
  *   Options: [disable: 0, auto-detect: 1, ABL: 2, BBL: 3, UBL: 4, MBL: 5]
  */
-#define BED_LEVELING_TYPE 1  // Default: 1
+#define BED_LEVELING_TYPE 4  // Default: 1
 
 /**
  * MBL Settings
@@ -1287,7 +1287,7 @@
  * Safety Alert
  * If enabled, safety alert popup messages are shown by some menus (e.g. heaters still on when leaving some menus).
  */
-#define SAFETY_ALERT  // Default: uncommented (enabled)
+//#define SAFETY_ALERT  // Default: uncommented (enabled)
 
 /**
  * Smart Home
@@ -1362,7 +1362,7 @@
  *     qwertz: The typically keyboard Layout for german.
  *     azerty: The typically keyboard Layout for french.
  */
-#define TERMINAL_KEYBOARD_LAYOUT 0  // Default: 0
+#define TERMINAL_KEYBOARD_LAYOUT 1  // Default: 0
 
 /**
  * Progress Bar Color (Printing menu)
@@ -1376,7 +1376,7 @@
  * Uncomment to enable a progress bar with 10% markers.
  * Comment to enable a standard progress bar.
  */
-//#define MARKED_PROGRESS_BAR  // Default: commented (disabled)
+#define MARKED_PROGRESS_BAR  // Default: commented (disabled)
 
 /**
  * Live Text Common Color Layout (Status Screen menu)

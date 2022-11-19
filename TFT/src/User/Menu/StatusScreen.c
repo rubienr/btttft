@@ -37,7 +37,8 @@ const MENUITEMS statusItems = {
       {ICON_NULL,                    LABEL_NULL},
     #endif
     {ICON_NULL,                    LABEL_NULL},
-    {ICON_PRINT,                   LABEL_PRINT},
+    // {ICON_PRINT,                   LABEL_PRINT},
+    {ICON_HOME_MOVE,               LABEL_UNIFIEDMOVE}
   }
 };
 
@@ -345,7 +346,8 @@ void menuStatus(void)
         break;
 
       case KEY_ICON_7:
-        OPEN_MENU(menuPrint);
+        //OPEN_MENU(menuPrint);
+	OPEN_MENU(menuUnifiedMove);
         break;
 
       case KEY_INFOBOX:
