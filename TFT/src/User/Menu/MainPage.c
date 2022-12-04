@@ -10,7 +10,8 @@ void menuMain(void)
     // icon                          label
     {
       {ICON_HEAT_FAN,                LABEL_UNIFIEDHEAT},
-      {ICON_HOME_MOVE,               LABEL_UNIFIEDMOVE},
+      // {ICON_HOME_MOVE,               LABEL_UNIFIEDMOVE},
+      {ICON_PRINT,                   LABEL_PRINT},
       #ifdef LOAD_UNLOAD_M701_M702
         {ICON_EXTRUDE,                 LABEL_LOAD_UNLOAD_SHORT},
       #else
@@ -49,7 +50,8 @@ void menuMain(void)
         break;
 
       case KEY_ICON_1:
-        OPEN_MENU(menuUnifiedMove);
+        // OPEN_MENU(menuUnifiedMove);
+        OPEN_MENU(menuPrinting);
         break;
 
       case KEY_ICON_2:

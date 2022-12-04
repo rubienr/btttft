@@ -268,7 +268,7 @@
  *
  *   Options: [Percentage & Elapsed time: 0, Percentage & Remaining time: 1, Elapsed time & Remaining time: 2]
  */
-#define PROG_DISP_TYPE 2  // Default: 2
+#define PROG_DISP_TYPE 1  // Default: 2
 
 /**
  * Current Layer Display Mode During Print
