@@ -991,10 +991,10 @@
 #define CUSTOM_GCODE_6 "T0\n"
 #define CUSTOM_LABEL_7 "Select T1"
 #define CUSTOM_GCODE_7 "T1\n"
-#define CUSTOM_LABEL_8 "Part Light  White"
-#define CUSTOM_GCODE_8 "M150 I24 R255 U255 B255 W255 P255\n"
-#define CUSTOM_LABEL_9 "Part Light  Red"
-#define CUSTOM_GCODE_9 "M150 I24 R255 P255\n"
+#define CUSTOM_LABEL_8 "Cal. Pos. T0"
+#define CUSTOM_GCODE_8 "M816\n"
+#define CUSTOM_LABEL_9 "Cal. Pos. T1"
+#define CUSTOM_GCODE_9 "M817\n"
 #define CUSTOM_LABEL_10 "Part Light Green"
 #define CUSTOM_GCODE_10 "M150 I24 U255 P255\n"
 #define CUSTOM_LABEL_11 "Part Light Blue"
@@ -1326,7 +1326,7 @@
  * Toast Notification Duration (in seconds)
  * Set the duration for displaying toast notification on top of the screen.
  */
-#define TOAST_DURATION 3  // in sec. Default: 3
+#define TOAST_DURATION 2  // in sec. Default: 3
 
 /**
  * Keyboard On Left Side (Mesh Editor, LED Color Custom)
@@ -1365,7 +1365,7 @@
  *     qwertz: The typically keyboard Layout for german.
  *     azerty: The typically keyboard Layout for french.
  */
-#define TERMINAL_KEYBOARD_LAYOUT 0  // Default: 0
+#define TERMINAL_KEYBOARD_LAYOUT 1  // Default: 0
 
 /**
  * Suppress/allow terminal cache during keyboard view
